@@ -1,4 +1,4 @@
-# alvarorubin.github.io
+//# alvarorubin.github.io
 // Cambiar entre tema claro y oscuro
 document.getElementById('toggleTheme').addEventListener('click', function() {
   document.body.classList.toggle('dark-theme');
