@@ -1,81 +1,103 @@
-# alvarorubin.github.io
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Álvaro Rubin</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Te Amo, Ana</title>
+  <style>
+    /* Estilos generales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
+      margin: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Corazón animado */
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      display: inline-block;
+      margin: 20px;
+      transform: rotate(-45deg);
+      animation: beat 1s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      background: red;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .heart::after {
+      left: 100px;
+    }
+    .heart::before {
+      top: -50px;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.1) rotate(-45deg); }
+    }
+    /* Estilos para el botón y contenido adicional */
+    button {
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    button:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .more {
+      display: none;
+      font-size: 1.2em;
+      margin: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 <body>
-  <!-- El resto del contenido permanece igual -->
-  <header>
-    <h1>Álvaro Rubin</h1>
-    <nav>
-      <ul>
-        <li><a href="#acerca-de">Acerca de Mí</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1>Te Amo, Ana</h1>
+  <div class="heart"></div>
+  <p class="love-message">Cada día mi amor por ti crece más. Eres mi inspiración, mi alegría y la razón de mis sonrisas.</p>
+  <button onclick="toggleMessage()">Ver más</button>
+  <p class="more" id="moreText">
+    Ana, te amo con todo mi corazón. Quiero estar a tu lado en cada momento, compartiendo risas, sueños y aventuras. Gracias por ser tan especial y llenar mi vida de amor.
+  </p>
   
-  <section id="acerca-de">
-    <h2>Acerca de Mí</h2>
-    <!-- Saludo que se insertará dinámicamente -->
-    <p>
-      Hola, soy Álvaro Rubin. Soy un profesional apasionado por [tu área de especialización]. 
-      Con experiencia en [tu experiencia o sector], me dedico a crear soluciones innovadoras y de calidad.
-    </p>
-  </section>
-  
-  <section id="experiencia">
-    <h2>Experiencia</h2>
-    <ul>
-      <li><strong>Empresa 1</strong> – [Tu rol o posición]  
-          <em>Descripción breve de tus responsabilidades y logros.</em>
-      </li>
-      <li><strong>Empresa 2</strong> – [Tu rol o posición]  
-          <em>Descripción breve de tus responsabilidades y logros.</em>
-      </li>
-      <li><strong>Empresa 3</strong> – [Tu rol o posición]  
-          <em>Descripción breve de tus responsabilidades y logros.</em>
-      </li>
-    </ul>
-  </section>
-  
-  <section id="proyectos">
-    <h2>Proyectos</h2>
-    <div class="project">
-      <h3>Proyecto 1</h3>
-      <p>Descripción del proyecto 1.</p>
-    </div>
-    <div class="project">
-      <h3>Proyecto 2</h3>
-      <p>Descripción del proyecto 2.</p>
-    </div>
-    <div class="project">
-      <h3>Proyecto 3</h3>
-      <p>Descripción del proyecto 3.</p>
-    </div>
-  </section>
-  
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>
-      Puedes contactarme a través de mi 
-      <a href="https://www.linkedin.com/in/alvarorubin/" target="_blank">LinkedIn</a> 
-      o escribirme a: <a href="mailto:tu-email@example.com">tu-email@example.com</a>.
-    </p>
-  </section>
-  
-  <footer>
-    <p>&copy; 2025 Álvaro Rubin. Todos los derechos reservados.</p>
-    <button id="toggleTheme">Cambiar tema</button>
-  </footer>
-  
-  <script src="script.js"></script>
+  <script>
+    function toggleMessage() {
+      var moreText = document.getElementById("moreText");
+      if (moreText.style.display === "none" || moreText.style.display === "") {
+        moreText.style.display = "block";
+      } else {
+        moreText.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
-
