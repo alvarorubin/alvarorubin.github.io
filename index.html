@@ -6,100 +6,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Te Amo, Ana</title>
   <style>
-    /* Estilos generales */
+    /* Fondo y estilos generales */
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
       color: #fff;
       text-align: center;
-      overflow-x: hidden;
-    }
-    h1 {
-      margin-top: 50px;
-      font-size: 3em;
-    }
-    p {
-      font-size: 1.5em;
-      margin: 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Corazón animado */
-    .heart {
-      width: 100px;
-      height: 90px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      display: inline-block;
-      margin: 20px;
-      transform: rotate(-45deg);
-      animation: beat 1s infinite;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin: 0.2em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Contenedor del corazón principal */
+    .heart-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 20px auto;
+    }
+
+    /* Corazón pulsante */
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: red;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      animation: pulse 1s infinite;
     }
     .heart::before,
     .heart::after {
       content: "";
+      position: absolute;
       background: red;
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .heart::after {
-      left: 100px;
     }
     .heart::before {
       top: -50px;
     }
-    @keyframes beat {
-      0%, 100% { transform: scale(1) rotate(-45deg); }
-      50% { transform: scale(1.1) rotate(-45deg); }
+    .heart::after {
+      left: 50px;
     }
-    /* Estilos para el botón y contenido adicional */
-    button {
-      background: rgba(255, 255, 255, 0.7);
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.2em;
-      cursor: pointer;
-      border-radius: 10px;
-      margin-bottom: 30px;
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); }
+      50% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.2); }
     }
-    button:hover {
-      background: rgba(255, 255, 255, 0.9);
+
+    /* Mensaje principal */
+    .message {
+      font-size: 1.5em;
+      margin: 20px;
+      max-width: 600px;
+      line-height: 1.5;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
-    .more {
+
+    /* Texto adicional con más detalles */
+    .more-info {
       display: none;
       font-size: 1.2em;
       margin: 20px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 600px;
+      line-height: 1.4;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Botón para mostrar/ocultar más información */
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.8);
+      color: #FF1493;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      margin-bottom: 20px;
+    }
+    button:hover {
+      background: rgba(255,255,255,1);
+      transform: scale(1.05);
+    }
+
+    /* Corazones flotantes en el fondo */
+    .floating-heart {
+      position: fixed;
+      bottom: -50px;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
+      opacity: 0.7;
+      animation: floatUp 5s linear infinite;
+      pointer-events: none;
+    }
+    .floating-heart::before,
+    .floating-heart::after {
+      content: "";
+      position: absolute;
+      background: red;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+    .floating-heart::before {
+      top: -15px;
+      left: 0;
+    }
+    .floating-heart::after {
+      left: 15px;
+      top: 0;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateX(50px) translateY(-120vh) rotate(45deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Te Amo, Ana</h1>
-  <div class="heart"></div>
-  <p class="love-message">Cada día mi amor por ti crece más. Eres mi inspiración, mi alegría y la razón de mis sonrisas.</p>
-  <button onclick="toggleMessage()">Ver más</button>
-  <p class="more" id="moreText">
-    Ana, te amo con todo mi corazón. Quiero estar a tu lado en cada momento, compartiendo risas, sueños y aventuras. Gracias por ser tan especial y llenar mi vida de amor.
-  </p>
-  
+  <div class="heart-container">
+    <div class="heart"></div>
+  </div>
+  <div class="message">
+    Cada latido de mi corazón susurra tu nombre. Eres mi musa, mi inspiración y el sueño que se hizo realidad.
+  </div>
+  <button onclick="toggleMoreInfo()">Leer más</button>
+  <div class="more-info" id="moreInfo">
+    <p>
+      Ana, desde el primer instante en que te vi, supe que tu esencia iluminaba mi mundo. Tu risa, tan sincera y contagiosa, y tu mirada, capaz de transformar un día gris en un arcoíris, me inspiran a ser mejor.
+    </p>
+    <p>
+      Eres la poesía en movimiento, la melodía que acompaña mis pasos y la calma en medio de la tormenta. Con cada palabra y cada gesto, me demuestras que el amor es la fuerza más poderosa de este universo.
+    </p>
+    <p>
+      Gracias por ser la dueña de mis sueños, por enseñarme que amar es vivir intensamente y por hacer que mi corazón lata al ritmo de tu nombre. Te amo con toda mi alma, hoy y siempre.
+    </p>
+  </div>
+
   <script>
-    function toggleMessage() {
-      var moreText = document.getElementById("moreText");
-      if (moreText.style.display === "none" || moreText.style.display === "") {
-        moreText.style.display = "block";
+    // Mostrar u ocultar información adicional
+    function toggleMoreInfo() {
+      var moreInfo = document.getElementById("moreInfo");
+      if (moreInfo.style.display === "none" || moreInfo.style.display === "") {
+        moreInfo.style.display = "block";
       } else {
-        moreText.style.display = "none";
+        moreInfo.style.display = "none";
       }
     }
+    
+    // Función para crear corazones flotantes de forma aleatoria
+    function createFloatingHeart() {
+      var heart = document.createElement("div");
+      heart.classList.add("floating-heart");
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(heart);
+      
+      // Elimina el corazón después de que termina la animación
+      setTimeout(function() {
+        heart.remove();
+      }, 5000);
+    }
+    
+    // Crea múltiples corazones flotantes de forma periódica
+    setInterval(createFloatingHeart, 500);
   </script>
 </body>
 </html>
-
