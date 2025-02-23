@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Te Amo, Ana</title>
+    <title>Feliz Cumpleaños, Ana</title>
     <style>
         /* Estilos generales */
         body {
@@ -20,12 +20,19 @@
             min-height: 100vh;
             padding: 20px;
             transition: all 0.5s ease-in-out;
+            overflow-x: hidden;
         }
 
         h1 {
             font-size: 3em;
             margin: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
         }
 
         /* Corazón animado */
@@ -121,6 +128,22 @@
             height: auto;
         }
 
+        /* Globos flotantes */
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: #ff0000;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: floatUp 5s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0.8; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
         /* Diseño responsive */
         @media (max-width: 600px) {
             h1 {
@@ -150,31 +173,27 @@
     </style>
 </head>
 <body id="pageBody">
-    <h1>Te Amo, Ana</h1>
+    <h1>🎉 Feliz Cumpleaños, Ana 🎂</h1>
     <div class="heart-container">
         <div class="heart"></div>
     </div>
 
     <div class="quote">
-        "Eres el poema más hermoso que jamás podría escribir." - Anónimo
+        "Que todos tus sueños se hagan realidad, mi amor." - 💖
     </div>
 
-    <button class="love-button" onclick="showMessage()">💌 Leer Carta</button>
+    <button class="love-button" onclick="showMessage()">💌 Tu Sorpresa</button>
 
     <div id="hiddenMessage" class="hidden-message">
         <h2>💌 Carta para ti</h2>
-        <p>Ana,</p>
-        <p>Desde que entraste en mi vida, todo se ha llenado de luz y significado.  
-           Cada conversación contigo es un viaje, cada mirada un poema,  
-           y cada abrazo un refugio donde el tiempo se detiene.</p>
-        <p>No hay día en el que no me sienta agradecido por tenerte a mi lado.  
-           No hay momento en el que no quiera recordarte lo especial que eres.</p>
-        <p>Si pudiera prometerte algo, sería esto:  
-           estaré contigo en cada alegría y en cada tormenta,  
-           porque tú eres mi hogar, mi musa y mi amor eterno.</p>
-        <p>Te amo con todo mi ser.</p>
-        <p>Siempre tuyo,</p>
-        <p>Tu amor</p>
+        <p>Mi amor, Ana,</p>
+        <p>Hoy es un día especial, porque el mundo celebró el día en que llegaste a iluminarlo con tu sonrisa.  
+           Pero más que un cumpleaños, es un recordatorio de lo maravillosa que eres y de lo afortunado que soy de compartir mi vida contigo.</p>
+        <p>Te amo con cada latido, con cada palabra y con cada mirada.  
+           Hoy, mi deseo es que este nuevo año en tu vida esté lleno de felicidad, amor y sueños cumplidos.</p>
+        <p>Feliz cumpleaños, mi amor.  
+           Siempre tuyo,</p>
+        <p>Tu amor 💖</p>
     </div>
 
     <script>
@@ -184,6 +203,19 @@
 
             message.style.display = "block";
             body.classList.add("show-scroll");
+
+            // Generar globos
+            for (let i = 0; i < 10; i++) {
+                let balloon = document.createElement("div");
+                balloon.classList.add("balloon");
+                balloon.style.left = Math.random() * window.innerWidth + "px";
+                balloon.style.animationDuration = (3 + Math.random() * 3) + "s";
+                document.body.appendChild(balloon);
+
+                setTimeout(() => {
+                    balloon.remove();
+                }, 5000);
+            }
         }
     </script>
 </body>
