@@ -13,14 +13,13 @@
             font-family: 'Georgia', serif;
             color: #fff;
             text-align: center;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            position: relative;
             padding: 20px;
+            transition: all 0.5s ease-in-out;
         }
 
         h1 {
@@ -116,13 +115,10 @@
             100% { opacity: 1; }
         }
 
-        /* Mensaje secreto */
-        #secretMessage {
-            display: none;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin-top: 20px;
-            animation: fadeIn 2s ease-in;
+        /* Activar scroll cuando la carta esté visible */
+        .show-scroll {
+            overflow-y: auto;
+            height: auto;
         }
 
         /* Diseño responsive */
@@ -153,7 +149,7 @@
 
     </style>
 </head>
-<body>
+<body id="pageBody">
     <h1>Te Amo, Ana</h1>
     <div class="heart-container">
         <div class="heart"></div>
@@ -181,18 +177,14 @@
         <p>Tu amor</p>
     </div>
 
-    <div id="secretMessage">
-        💖 "No importa el tiempo ni la distancia. Siempre serás mi todo." 💖
-    </div>
-
     <script>
         function showMessage() {
-            document.getElementById("hiddenMessage").style.display = "block";
-        }
+            let message = document.getElementById("hiddenMessage");
+            let body = document.getElementById("pageBody");
 
-        setTimeout(function() {
-            document.getElementById("secretMessage").style.display = "block";
-        }, 10000);
+            message.style.display = "block";
+            body.classList.add("show-scroll");
+        }
     </script>
 </body>
 </html>
