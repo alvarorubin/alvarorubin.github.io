@@ -1,13 +1,14 @@
 # alvarorubin.github.io
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  Álvaro Rubin
+  <title>Álvaro Rubin</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- El resto del contenido permanece igual -->
   <header>
     <h1>Álvaro Rubin</h1>
     <nav>
@@ -77,3 +78,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
