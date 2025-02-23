@@ -73,24 +73,14 @@
             50% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.2); }
         }
 
-        /* Secciones mejoradas */
-        .section {
-            margin-top: 20px;
-            max-width: 700px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            font-size: 1.2em;
-        }
-
+        /* Citas y texto */
         .quote {
             font-size: 1.4em;
             font-style: italic;
             margin: 20px;
         }
 
-        /* Botón para mostrar la carta */
+        /* Botón */
         .love-button {
             padding: 12px 25px;
             font-size: 1.1em;
@@ -109,7 +99,7 @@
         }
 
         /* Carta oculta */
-        #hiddenMessage {
+        .hidden-message {
             display: none;
             font-size: 1.2em;
             margin: 20px;
@@ -118,6 +108,12 @@
             padding: 15px;
             border-radius: 10px;
             background: rgba(255,255,255,0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Mensaje secreto */
@@ -127,11 +123,6 @@
             font-weight: bold;
             margin-top: 20px;
             animation: fadeIn 2s ease-in;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         /* Diseño responsive */
@@ -145,14 +136,18 @@
                 height: 100px;
             }
 
-            .section {
-                font-size: 1em;
-                padding: 10px;
+            .quote {
+                font-size: 1.2em;
             }
 
             .love-button {
                 font-size: 1em;
                 padding: 10px 20px;
+            }
+
+            .hidden-message {
+                font-size: 1em;
+                padding: 10px;
             }
         }
 
@@ -164,33 +159,25 @@
         <div class="heart"></div>
     </div>
 
-    <div class="section">
-        <h2>🌟 Lo que significas para mí</h2>
-        <p>No sé en qué momento te convertiste en mi todo, pero ahora no concibo mi vida sin ti.</p>
-        <p>Contigo, cualquier día común se siente especial. Me das calma cuando la necesito, alegría cuando me falta y amor en todo momento.</p>
-    </div>
-
-    <div class="section">
-        <h2>💫 Pequeñas cosas que amo de ti</h2>
-        <p>⭐ Cómo se iluminan tus ojos cuando hablas de un libro que te apasiona.</p>
-        <p>🎬 Lo mucho que disfrutas el cine y cómo analizamos cada detalle juntos.</p>
-        <p>💬 La forma en la que me entiendes incluso cuando no digo nada.</p>
-        <p>🌎 Que hayas vivido tantas cosas y, aun así, hayas decidido que yo sea parte de tu historia.</p>
-    </div>
-
     <div class="quote">
         "Eres el poema más hermoso que jamás podría escribir." - Anónimo
     </div>
 
     <button class="love-button" onclick="showMessage()">💌 Leer Carta</button>
 
-    <div id="hiddenMessage" class="section">
+    <div id="hiddenMessage" class="hidden-message">
         <h2>💌 Carta para ti</h2>
         <p>Ana,</p>
-        <p>Dicen que el amor verdadero se siente como un hogar. Y eso eres tú para mí: mi refugio, mi paz, mi certeza.</p>
-        <p>Te amo con cada parte de mi ser, con cada palabra que no digo, con cada sonrisa que me arrancas sin esfuerzo.</p>
-        <p>Si pudiera prometerte algo, sería esto: estaré contigo en cada alegría y en cada tormenta. Porque tú eres mi destino.</p>
-        <p>Para siempre,</p>
+        <p>Desde que entraste en mi vida, todo se ha llenado de luz y significado.  
+           Cada conversación contigo es un viaje, cada mirada un poema,  
+           y cada abrazo un refugio donde el tiempo se detiene.</p>
+        <p>No hay día en el que no me sienta agradecido por tenerte a mi lado.  
+           No hay momento en el que no quiera recordarte lo especial que eres.</p>
+        <p>Si pudiera prometerte algo, sería esto:  
+           estaré contigo en cada alegría y en cada tormenta,  
+           porque tú eres mi hogar, mi musa y mi amor eterno.</p>
+        <p>Te amo con todo mi ser.</p>
+        <p>Siempre tuyo,</p>
         <p>Tu amor</p>
     </div>
 
@@ -209,4 +196,3 @@
     </script>
 </body>
 </html>
-
